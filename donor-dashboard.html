@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Donor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dashboard-body {
+            display: flex;
+            background: var(--light);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .sidebar {
+            width: 280px;
+            background: var(--dark-light); /* Slightly lighter dark for donor */
+            color: var(--white);
+            padding: 30px 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            padding: 0 10px;
+        }
+        .sidebar-logo img {
+            height: 40px;
+            width: auto;
+        }
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-item {
+            margin-bottom: 10px;
+        }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+        .nav-link i {
+            width: 20px;
+            font-size: 1.1rem;
+        }
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px 50px;
+        }
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-sm);
+        }
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(251, 191, 36, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 6px;
+            background: var(--primary);
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .stat-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: rgba(251, 191, 36, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        .stat-info h3 {
+            font-size: 2rem;
+            margin: 0 0 5px 0;
+            color: var(--dark);
+        }
+        .stat-info p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .card-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+        .card-section h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-section h2 a {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px 10px;
+            text-align: left;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        th {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .campaign-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .campaign-item:last-child { border: none; }
+        .campaign-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+        .campaign-details h4 {
+            margin: 0 0 5px 0;
+            color: var(--dark);
+        }
+        .campaign-details p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body class="dashboard-body">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <img src="public/assets/images/stackly_yellow.webp" alt="Stackly Loading" class="loader-logo">
+            <div class="loader-ring"></div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <a href="index.html"><img src="public/assets/images/stackly_yellow.webp" alt="Stackly Logo"></a>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link active"><i class="fa-solid fa-house-user"></i> Overview</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa-solid fa-heart"></i> My Donations</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa-solid fa-award"></i> Certificates</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa-solid fa-user-pen"></i> Profile</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="top-header">
+            <div>
+                <h1 style="margin: 0; font-size: 2rem;">Donor Dashboard</h1>
+                <p style="margin: 5px 0 0 0; color: var(--text-muted);">Thank you for continuously supporting our causes.</p>
+            </div>
+            <div class="user-profile" style="background: transparent; box-shadow: none; display: flex; align-items: center; gap: 15px;">
+                <div style="display: flex; flex-direction: column; text-align: right;">
+                    <span id="user-email-display" style="font-weight: 600; font-size: 0.95rem; color: var(--dark);">donor@stackly.org</span>
+                    <span id="user-name-display" style="font-size: 0.8rem; color: var(--text-muted);">Donor</span>
+                </div>
+                <a href="#" id="dashboard-logout-btn" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+            </div>
+        </div>
+
+        <div id="tab-0" class="tab-pane active" style="display: block;">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                <div class="stat-info">
+                    <h3>$1,250</h3>
+                    <p>Total Contribution</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-globe"></i></div>
+                <div class="stat-info">
+                    <h3>5</h3>
+                    <p>Causes Supported</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-medal"></i></div>
+                <div class="stat-info">
+                    <h3>Gold</h3>
+                    <p>Donor Tier</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="card-section">
+                <h2>Donation History <a href="#">View All</a></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Campaign</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Receipt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 600; color: #0F172A;">Child Education Support</td>
+                            <td>Apr 1, 2026</td>
+                            <td style="font-weight: 600; color: #10b981;">$500.00</td>
+                            <td><a href="#" style="color: var(--primary);"><i class="fa-solid fa-download"></i> PDF</a></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 600; color: #0F172A;">Disaster Relief Fund</td>
+                            <td>Feb 14, 2026</td>
+                            <td style="font-weight: 600; color: #10b981;">$250.00</td>
+                            <td><a href="#" style="color: var(--primary);"><i class="fa-solid fa-download"></i> PDF</a></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 600; color: #0F172A;">Clean Water Initiative</td>
+                            <td>Dec 20, 2025</td>
+                            <td style="font-weight: 600; color: #10b981;">$500.00</td>
+                            <td><a href="#" style="color: var(--primary);"><i class="fa-solid fa-download"></i> PDF</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card-section">
+                <h2>Recommended Causes</h2>
+                <div class="campaign-list">
+                    <div class="campaign-item">
+                        <div class="campaign-img"></div>
+                        <div class="campaign-details">
+                            <h4>Medical Camp 2026</h4>
+                            <p>80% Funded</p>
+                        </div>
+                    </div>
+                    <div class="campaign-item">
+                        <div class="campaign-img"></div>
+                        <div class="campaign-details">
+                            <h4>Food to Homeless</h4>
+                            <p>45% Funded</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="donate.html" class="btn btn-outline" style="width: 100%; justify-content: center; margin-top: 20px;">Explore More</a>
+            </div>
+        </div>
+        </div>
+
+        <div id="tab-1" class="tab-pane" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <h2 style="margin: 0;">My Full Donations</h2>
+            </div>
+            <div class="card-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Campaign</th>
+                            <th>Amount</th>
+                            <th>Payment Method</th>
+                            <th>Receipt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apr 1, 2026</td>
+                            <td style="font-weight: 600; color: #0F172A;">Child Education Support</td>
+                            <td style="font-weight: 600; color: #10b981;">$500.00</td>
+                            <td>Credit Card ending in 4242</td>
+                            <td><a href="#" style="color: var(--primary);"><i class="fa-solid fa-download"></i> Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>Feb 14, 2026</td>
+                            <td style="font-weight: 600; color: #0F172A;">Disaster Relief Fund</td>
+                            <td style="font-weight: 600; color: #10b981;">$250.00</td>
+                            <td>PayPal</td>
+                            <td><a href="#" style="color: var(--primary);"><i class="fa-solid fa-download"></i> Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>Dec 20, 2025</td>
+                            <td style="font-weight: 600; color: #0F172A;">Clean Water Initiative</td>
+                            <td style="font-weight: 600; color: #10b981;">$500.00</td>
+                            <td>Credit Card ending in 4242</td>
+                            <td><a href="#" style="color: var(--primary);"><i class="fa-solid fa-download"></i> Download</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="tab-2" class="tab-pane" style="display: none;">
+            <h2 style="margin-bottom: 25px;">My Certificates</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+                <div class="stat-card" style="flex-direction: column; text-align: center; justify-content: center; padding: 40px 20px; border: 1px solid #e2e8f0; background: linear-gradient(to bottom, #fff, #f8fafc);">
+                    <i class="fa-solid fa-medal" style="font-size: 3rem; color: #fbbf24; margin-bottom: 15px;"></i>
+                    <h3 style="margin: 0 0 10px 0; color: var(--dark);">Gold Donor 2026</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Awarded for contributing over $1,000 to Stackly.</p>
+                    <button class="btn btn-primary" style="padding: 8px 20px; font-size: 0.85rem;"><i class="fa-solid fa-download"></i> Certificate PDF</button>
+                </div>
+                <div class="stat-card" style="flex-direction: column; text-align: center; justify-content: center; padding: 40px 20px; border: 1px solid #e2e8f0; background: linear-gradient(to bottom, #fff, #f8fafc);">
+                    <i class="fa-solid fa-droplet" style="font-size: 3rem; color: #3b82f6; margin-bottom: 15px;"></i>
+                    <h3 style="margin: 0 0 10px 0; color: var(--dark);">Clean Water Hero</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Awarded for supporting 5 Clean Water initiatives.</p>
+                    <button class="btn btn-primary" style="padding: 8px 20px; font-size: 0.85rem;"><i class="fa-solid fa-download"></i> Certificate PDF</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-3" class="tab-pane" style="display: none;">
+            <h2 style="margin-bottom: 25px;">Profile Settings</h2>
+            <div class="card-section" style="max-width: 600px;">
+                <form class="contact-form" id="profile-form" novalidate>
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem;">Full Name</label>
+                        <input type="text" id="prof-name" value="John Carter" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" style="width: 100%; padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 8px; background: #F8FAFC; outline: none; font-family: inherit;">
+                        <div id="err-prof-name" style="color: #ef4444; font-size: 0.8rem; margin-top: 5px; display: none;">fill these slot</div>
+                    </div>
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem;">Email Address</label>
+                        <input type="email" id="prof-email" value="donor@stackly.org" readonly style="width: 100%; padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 8px; background: #e2e8f0; outline: none; color: #64748b; font-family: inherit;">
+                    </div>
+                    <div class="input-group" style="margin-bottom: 25px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem;">Phone Number</label>
+                        <input type="text" id="prof-phone" placeholder="+1 (555) 000-0000" style="width: 100%; padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 8px; background: #F8FAFC; outline: none; font-family: inherit;">
+                        <div id="err-prof-phone" style="color: #ef4444; font-size: 0.8rem; margin-top: 5px; display: none;">fill these slot</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="padding: 12px 25px;">Update Profile</button>
+                    <div id="prof-success" style="color: #22c55e; font-size: 0.9rem; margin-top: 15px; display: none; font-weight: 500;">Profile updated successfully!</div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.sidebar .nav-link');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            navLinks.forEach((link, idx) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!tabPanes[idx]) return;
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    tabPanes.forEach(t => t.style.display = 'none');
+                    link.classList.add('active');
+                    tabPanes[idx].style.display = 'block';
+                });
+            });
+            const email = localStorage.getItem('loggedInEmail');
+            
+            if (email) {
+                document.getElementById('user-email-display').textContent = email;
+            }
+            
+            document.getElementById('dashboard-logout-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                localStorage.removeItem('loggedInEmail');
+                localStorage.removeItem('loggedInName');
+                window.location.href = 'login.html';
+            });
+            
+            const profileForm = document.getElementById('profile-form');
+            if (profileForm) {
+                profileForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('prof-name').value;
+                    const phone = document.getElementById('prof-phone').value;
+                    let isValid = true;
+                    
+                    if (!name.trim()) { document.getElementById('err-prof-name').style.display = 'block'; isValid = false; } else { document.getElementById('err-prof-name').style.display = 'none'; }
+                    if (!phone.trim()) { document.getElementById('err-prof-phone').style.display = 'block'; isValid = false; } else { document.getElementById('err-prof-phone').style.display = 'none'; }
+
+                    if (isValid) {
+                        localStorage.setItem('loggedInName', name);
+                        document.getElementById('prof-success').style.display = 'block';
+                        setTimeout(() => document.getElementById('prof-success').style.display = 'none', 3000);
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

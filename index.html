@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Stackly | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <img src="public/assets/images/stackly_yellow.webp" alt="Stackly Loading" class="loader-logo">
+            <div class="loader-ring"></div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header id="header" class="scrolled"> <!-- Always scrolled on subpages or fixed -->
+        <nav class="nav-container">
+            <a href="index.html" class="logo"><img src="public/assets/images/stackly_yellow.webp"
+                    alt="Stackly Logo"></a>
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links"><button class="nav-close-btn" aria-label="Close menu">&times;</button>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donate.html" class="donate-btn">Donate <i class="fa-solid fa-heart"></i></a></li>
+                <li><a href="login.html" class="login-btn">Login <i class="fa-solid fa-right-to-bracket"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section (Home Content) -->
+    <section class="hero" id="home">
+        <div class="hero-bg"
+            style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?fm=webp&q=50&w=1200&auto=format&fit=crop');">
+        </div>
+        <div class="hero-content fade-in visible">
+            <h1>Fight for <span>Right</span> Causes</h1>
+            <p>Every donation counts. Join us in making a difference in the lives of those who need it most. Together,
+                we can build a better future.</p>
+            <div class="hero-btns">
+                <a href="services.html" class="btn btn-primary">Our Programs</a>
+                <a href="about.html" class="btn btn-outline" style="color: white; border-color: white;">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Core Values -->
+    <section class="values" style="background: white;">
+        <div class="section-head fade-in">
+            <span>Core Principles</span>
+            <h2>Our Values</h2>
+            <p>The foundation of everything we do at Goodwish. We believe in transparency and direct impact.</p>
+        </div>
+        <div class="services-grid fade-in">
+            <div style="text-align: center; padding: 20px;">
+                <i class="fa-solid fa-hand-holding-heart"
+                    style="font-size: 3rem; color: var(--primary); margin-bottom: 15px; display: block;"></i>
+                <h4>Compassion</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Empathy drives our every move, ensuring we serve
+                    with heart.</p>
+            </div>
+            <div style="text-align: center; padding: 20px;">
+                <i class="fa-solid fa-scale-balanced"
+                    style="font-size: 3rem; color: var(--primary); margin-bottom: 15px; display: block;"></i>
+                <h4>Integrity</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">We are accountable to our donors and the
+                    communities we serve.</p>
+            </div>
+            <div style="text-align: center; padding: 20px;">
+                <i class="fa-solid fa-users-viewfinder"
+                    style="font-size: 3rem; color: var(--primary); margin-bottom: 15px; display: block;"></i>
+                <h4>Transparency</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Every dollar spent is documented and reported to
+                    our supporters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="impact">
+        <div class="impact-grid fade-in">
+            <div class="impact-item">
+                <h3>150+</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div class="impact-item">
+                <h3>25k</h3>
+                <p>Lives Impacted</p>
+            </div>
+            <div class="impact-item">
+                <h3>50</h3>
+                <p>Active Communities</p>
+            </div>
+            <div class="impact-item">
+                <h3>12</h3>
+                <p>Global Partners</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent News -->
+    <section class="news">
+        <div class="section-head fade-in">
+            <span>Stay Updated</span>
+            <h2>Latest News</h2>
+            <p>Recent stories from the field and highlights of our community achievements.</p>
+        </div>
+        <div class="services-grid fade-in">
+            <div class="service-card">
+                <div class="service-img"><img
+                        src="https://images.unsplash.com/photo-1509062522246-3755977927d7?fm=webp&q=50&w=600&auto=format&fit=crop"
+                        alt="News"></div>
+                <div class="service-info">
+                    <small style="color: var(--primary);">April 15, 2024</small>
+                    <h3>New School Opened in Rural Kenya</h3>
+                    <p>Over 300 students now have access to safe learning environments.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img"><img
+                        src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?fm=webp&q=50&w=600&auto=format&fit=crop"
+                        alt="News"></div>
+                <div class="service-info">
+                    <small style="color: var(--primary);">May 02, 2024</small>
+                    <h3>10,000 Trees Planted in Amazon</h3>
+                    <p>Our reforestation project hits a major milestone this month.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img"><img
+                        src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?fm=webp&q=50&w=600&auto=format&fit=crop"
+                        alt="News"></div>
+                <div class="service-info">
+                    <small style="color: var(--primary);">May 20, 2024</small>
+                    <h3>Health Camp Success in Texas</h3>
+                    <p>Providing free medical assistance to over 500 local residents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" style="background: white;">
+        <div class="section-head fade-in">
+            <span>Testimonials</span>
+            <h2>What They Say</h2>
+            <p>Listen to the voices of those whose lives have been transformed by your support.</p>
+        </div>
+        <div class="testimonial-grid fade-in">
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-right"></i>
+                <p>"Goodwish changed my life. Thanks to their education program, I am now the first person in my family
+                    to attend college."</p>
+                <div style="margin-top: 20px;">
+                    <strong style="display: block;">Sarah Jenkins</strong>
+                    <small style="color: var(--text-muted);">Scholarship Recipient</small>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-right"></i>
+                <p>"The clean water project in our village has significantly reduced illness. We are forever grateful
+                    for the support."</p>
+                <div style="margin-top: 20px;">
+                    <strong style="display: block;">David M.</strong>
+                    <small style="color: var(--text-muted);">Community Leader</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="section-head fade-in">
+            <span>Collaborations</span>
+            <h2>Our Global Partners</h2>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 50px; opacity: 0.5; flex-wrap: wrap; max-width: 1000px; margin: 0 auto;"
+            class="fade-in">
+            <i class="fa-brands fa-google-pay" style="font-size: 3rem;"></i>
+            <i class="fa-brands fa-apple-pay" style="font-size: 3rem;"></i>
+            <i class="fa-brands fa-paypal" style="font-size: 3rem;"></i>
+            <i class="fa-brands fa-stripe" style="font-size: 3rem;"></i>
+            <i class="fa-brands fa-amazon-pay" style="font-size: 3rem;"></i>
+        </div>
+    </section>
+
+    <!-- 📸 Gallery Section -->
+    <section style="background: var(--light); padding: 100px 20px;">
+        <div class="section-head fade-in">
+            <span>Our Impact in Action</span>
+            <h2>📸 Gallery</h2>
+            <p>Real moments from the field — food distribution, education, healthcare & volunteer activities.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 50px auto 0; padding: 0 10px;" class="fade-in">
+
+            <!-- Food Distribution 1 -->
+            <div style="position:relative; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); aspect-ratio:4/3; cursor:pointer;" onmouseenter="this.querySelector('.gallery-overlay').style.opacity='1'" onmouseleave="this.querySelector('.gallery-overlay').style.opacity='0'">
+                <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?fm=webp&q=50&w=600&auto=format&fit=crop" alt="Food Distribution" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.4s ease;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+                <div class="gallery-overlay" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75), transparent); display:flex; align-items:flex-end; padding:20px; opacity:0; transition:opacity 0.3s ease;">
+                    <div>
+                        <i class="fa-solid fa-bowl-food" style="color:var(--primary); margin-bottom:6px; font-size:1.2rem;"></i>
+                        <p style="color:#fff; font-weight:600; margin:0; font-size:0.95rem;">Food Distribution</p>
+                        <small style="color:rgba(255,255,255,0.7);">Nutritious meals to families in need</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Children Education 1 -->
+            <div style="position:relative; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); aspect-ratio:4/3; cursor:pointer;" onmouseenter="this.querySelector('.gallery-overlay').style.opacity='1'" onmouseleave="this.querySelector('.gallery-overlay').style.opacity='0'">
+                <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?fm=webp&q=50&w=600&auto=format&fit=crop" alt="Children Education" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.4s ease;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+                <div class="gallery-overlay" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75), transparent); display:flex; align-items:flex-end; padding:20px; opacity:0; transition:opacity 0.3s ease;">
+                    <div>
+                        <i class="fa-solid fa-child" style="color:var(--primary); margin-bottom:6px; font-size:1.2rem;"></i>
+                        <p style="color:#fff; font-weight:600; margin:0; font-size:0.95rem;">Children Education</p>
+                        <small style="color:rgba(255,255,255,0.7);">Empowering young minds across the globe</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medical Camp 1 -->
+            <div style="position:relative; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); aspect-ratio:4/3; cursor:pointer;" onmouseenter="this.querySelector('.gallery-overlay').style.opacity='1'" onmouseleave="this.querySelector('.gallery-overlay').style.opacity='0'">
+                <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?fm=webp&q=50&w=600&auto=format&fit=crop" alt="Medical Camp" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.4s ease;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+                <div class="gallery-overlay" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75), transparent); display:flex; align-items:flex-end; padding:20px; opacity:0; transition:opacity 0.3s ease;">
+                    <div>
+                        <i class="fa-solid fa-heart-pulse" style="color:var(--primary); margin-bottom:6px; font-size:1.2rem;"></i>
+                        <p style="color:#fff; font-weight:600; margin:0; font-size:0.95rem;">Medical Camp</p>
+                        <small style="color:rgba(255,255,255,0.7);">Free healthcare for rural communities</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Volunteer Activities 1 -->
+            <div style="position:relative; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); aspect-ratio:4/3; cursor:pointer;" onmouseenter="this.querySelector('.gallery-overlay').style.opacity='1'" onmouseleave="this.querySelector('.gallery-overlay').style.opacity='0'">
+                <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?fm=webp&q=50&w=600&auto=format&fit=crop" alt="Volunteer Activities" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.4s ease;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+                <div class="gallery-overlay" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75), transparent); display:flex; align-items:flex-end; padding:20px; opacity:0; transition:opacity 0.3s ease;">
+                    <div>
+                        <i class="fa-solid fa-people-group" style="color:var(--primary); margin-bottom:6px; font-size:1.2rem;"></i>
+                        <p style="color:#fff; font-weight:600; margin:0; font-size:0.95rem;">Volunteer Activities</p>
+                        <small style="color:rgba(255,255,255,0.7);">Dedicated hands making a difference</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Distribution 2 -->
+            <div style="position:relative; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); aspect-ratio:4/3; cursor:pointer;" onmouseenter="this.querySelector('.gallery-overlay').style.opacity='1'" onmouseleave="this.querySelector('.gallery-overlay').style.opacity='0'">
+                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?fm=webp&q=50&w=600&auto=format&fit=crop" alt="Food Distribution" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.4s ease;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+                <div class="gallery-overlay" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75), transparent); display:flex; align-items:flex-end; padding:20px; opacity:0; transition:opacity 0.3s ease;">
+                    <div>
+                        <i class="fa-solid fa-bowl-food" style="color:var(--primary); margin-bottom:6px; font-size:1.2rem;"></i>
+                        <p style="color:#fff; font-weight:600; margin:0; font-size:0.95rem;">Food Distribution</p>
+                        <small style="color:rgba(255,255,255,0.7);">Ending hunger one meal at a time</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Children Education 2 -->
+            <div style="position:relative; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); aspect-ratio:4/3; cursor:pointer;" onmouseenter="this.querySelector('.gallery-overlay').style.opacity='1'" onmouseleave="this.querySelector('.gallery-overlay').style.opacity='0'">
+                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?fm=webp&q=50&w=600&auto=format&fit=crop" alt="Children Education" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.4s ease;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+                <div class="gallery-overlay" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75), transparent); display:flex; align-items:flex-end; padding:20px; opacity:0; transition:opacity 0.3s ease;">
+                    <div>
+                        <i class="fa-solid fa-book-open" style="color:var(--primary); margin-bottom:6px; font-size:1.2rem;"></i>
+                        <p style="color:#fff; font-weight:600; margin:0; font-size:0.95rem;">Children Education</p>
+                        <small style="color:rgba(255,255,255,0.7);">Building schools, building futures</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medical Camp 2 -->
+            <div style="position:relative; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); aspect-ratio:4/3; cursor:pointer;" onmouseenter="this.querySelector('.gallery-overlay').style.opacity='1'" onmouseleave="this.querySelector('.gallery-overlay').style.opacity='0'">
+                <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?fm=webp&q=50&w=600&auto=format&fit=crop" alt="Medical Camp" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.4s ease;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+                <div class="gallery-overlay" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75), transparent); display:flex; align-items:flex-end; padding:20px; opacity:0; transition:opacity 0.3s ease;">
+                    <div>
+                        <i class="fa-solid fa-stethoscope" style="color:var(--primary); margin-bottom:6px; font-size:1.2rem;"></i>
+                        <p style="color:#fff; font-weight:600; margin:0; font-size:0.95rem;">Medical Camp</p>
+                        <small style="color:rgba(255,255,255,0.7);">500+ patients treated in health camps</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Volunteer Activities 2 -->
+            <div style="position:relative; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); aspect-ratio:4/3; cursor:pointer;" onmouseenter="this.querySelector('.gallery-overlay').style.opacity='1'" onmouseleave="this.querySelector('.gallery-overlay').style.opacity='0'">
+                <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?fm=webp&q=50&w=600&auto=format&fit=crop" alt="Volunteer Activities" style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.4s ease;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+                <div class="gallery-overlay" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75), transparent); display:flex; align-items:flex-end; padding:20px; opacity:0; transition:opacity 0.3s ease;">
+                    <div>
+                        <i class="fa-solid fa-hand-holding-heart" style="color:var(--primary); margin-bottom:6px; font-size:1.2rem;"></i>
+                        <p style="color:#fff; font-weight:600; margin:0; font-size:0.95rem;">Volunteer Activities</p>
+                        <small style="color:rgba(255,255,255,0.7);">25K+ volunteers changing the world</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" style="background: var(--light);">
+        <div class="section-head fade-in visible">
+            <span>Common Questions</span>
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto;" class="fade-in visible">
+            <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                <h4 style="margin-bottom: 10px; color: var(--primary);">How can I volunteer?</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">You can sign up through our Events page or
+                    directly email us at volunteer@goodwish.org.</p>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                <h4 style="margin-bottom: 10px; color: var(--primary);">Is my donation tax-deductible?</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Yes, stackly is a registered 501(c)(3)
+                    non-profit. All donations are tax-deductible.</p>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                <h4 style="margin-bottom: 10px; color: var(--primary);">Where do you operate?</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">We currently have active projects in over 15
+                    countries across Africa, Asia, and the Americas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="display: block; margin-bottom: 20px;"><img
+                        src="public/assets/images/stackly_yellow.webp" alt="Stackly Logo"></a>
+                <p>Empowering lives since 2012. We are a non-profit dedicated to making the world a better place for
+                    everyone.</p>
+                <div class="footer-socials">
+                    <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="404.html">Child Education</a></li>
+                    <li><a href="404.html">Medical Support</a></li>
+                    <li><a href="404.html">Clean Water</a></li>
+                    <li><a href="404.html">Food Aid</a></li>
+                    <li><a href="404.html">Disaster Relief</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Stay updated with our latest causes and mission results.</p>
+                <form class="contact-form" style="margin-top: 20px;"
+                    onsubmit="event.preventDefault(); if(this.querySelector('input').value){window.location.href='404.html';} else { this.querySelector('input').reportValidity(); }">
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required
+                            oninvalid="this.setCustomValidity('fill this slot')" oninput="this.setCustomValidity('')">
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stackly Non-Profit Organization. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+

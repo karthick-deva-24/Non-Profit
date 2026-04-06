@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Goodwish | Donate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <img src="public/assets/images/stackly_yellow.webp" alt="Stackly Loading" class="loader-logo">
+            <div class="loader-ring"></div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header id="header" class="scrolled">
+        <nav class="nav-container">
+            <a href="index.html" class="logo"><img src="public/assets/images/stackly_yellow.webp"
+                    alt="Stackly Logo"></a>
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links"><button class="nav-close-btn" aria-label="Close menu">&times;</button>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donate.html" class="active donate-btn">Donate <i class="fa-solid fa-heart"></i></a></li>
+                <li><a href="login.html" class="login-btn">Login <i class="fa-solid fa-right-to-bracket"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Subpage Hero -->
+    <section class="sub-hero"
+        style="background-image: url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?fm=webp&q=50&w=1200&auto=format&fit=crop');">
+        <div class="sub-hero-content">
+            <h1>Support Our <span>Mission</span></h1>
+            <p>Your contribution directly impacts lives and creates lasting change.</p>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="donate">
+        <div class="contact-container fade-in visible" style="max-width: 800px;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2>Make a Donation</h2>
+                <p>Select an amount or enter your own to support our causes.</p>
+            </div>
+
+            <div class="donation-options"
+                style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px;">
+                <button class="btn btn-outline">$10</button>
+                <button class="btn btn-outline">$25</button>
+                <button class="btn btn-outline active" style="background: var(--primary); color: white;">$50</button>
+                <button class="btn btn-outline">$100</button>
+                <button class="btn btn-outline">$250</button>
+                <button class="btn btn-outline">Other</button>
+            </div>
+
+            <div class="contact-form">
+                <form action="#">
+                    <div class="input-group">
+                        <input type="number" placeholder="Enter Custom Amount ($)" min="1">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <select
+                            style="width: 100%; padding: 15px; border: 1px solid #E2E8F0; border-radius: 10px; background: #F8FAFC;">
+                            <option value="">Select a Cause (Optional)</option>
+                            <option value="education">Education Support</option>
+                            <option value="health">Global Health</option>
+                            <option value="climate">Climate Action</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; justify-content: center; margin-top: 20px;">Donate Now</button>
+                </form>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; font-size: 0.85rem; color: var(--text-muted);">
+                <i class="fa-solid fa-lock"></i> Your donation is secure and encrypted.
+            </div>
+        </div>
+
+        <!-- Impact Breakdown -->
+        <section class="impact-breakdown" style="background: var(--light);">
+            <div style="max-width: 800px; margin: 0 auto; padding-bottom: 80px;">
+                <div class="section-head" style="margin-bottom: 40px;">
+                    <span>Transparency</span>
+                    <h3>Where Your Money Goes</h3>
+                </div>
+                <div class="about-item"
+                    style="background: white; padding: 25px; border-radius: 15px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                    <i class="fa-solid fa-kit-medical"></i>
+                    <div>
+                        <h4>$10 buys a medical kit</h4>
+                        <p>Provides basic first aid supplies for a school clinic in a rural community serving over 50
+                            children.</p>
+                    </div>
+                </div>
+                <div class="about-item"
+                    style="background: white; padding: 25px; border-radius: 15px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                    <i class="fa-solid fa-book"></i>
+                    <div>
+                        <h4>$50 feeds a child for a month</h4>
+                        <p>Includes three nutritious meals a day, clean drinking water, and essential vitamin
+                            supplements.</p>
+                    </div>
+                </div>
+                <div class="about-item"
+                    style="background: white; padding: 25px; border-radius: 15px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                    <i class="fa-solid fa-school"></i>
+                    <div>
+                        <h4>$250 builds a community well</h4>
+                        <p>Gives an entire village access to safe, clean water for years to come, reducing water-borne
+                            diseases by 80%.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donor Recognition Club -->
+        <section class="donor-club" style="padding: 80px 20px; background: white;">
+            <div class="section-head fade-in visible">
+                <span>Our Heroes</span>
+                <h2>Donor Recognition Club</h2>
+                <p>Join our special community of recurring supporters and get exclusive updates from the field.</p>
+            </div>
+            <div class="services-grid fade-in visible">
+                <div class="service-card" style="padding: 30px; text-align: center;">
+                    <i class="fa-solid fa-star" style="font-size: 2.5rem; color: #CD7F32; margin-bottom: 15px;"></i>
+                    <h4>Bronze Member</h4>
+                    <p>$10 - $49 / month</p>
+                </div>
+                <div class="service-card" style="padding: 30px; text-align: center;">
+                    <i class="fa-solid fa-crown" style="font-size: 2.5rem; color: #C0C0C0; margin-bottom: 15px;"></i>
+                    <h4>Silver Member</h4>
+                    <p>$50 - $199 / month</p>
+                </div>
+                <div class="service-card" style="padding: 30px; text-align: center;">
+                    <i class="fa-solid fa-gem" style="font-size: 2.5rem; color: #FFD700; margin-bottom: 15px;"></i>
+                    <h4>Gold Member</h4>
+                    <p>$200+ / month</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-top">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="display: block; margin-bottom: 20px;"><img
+                            src="public/assets/images/stackly_yellow.webp" alt="Stackly Logo"></a>
+                    <p>Empowering lives since 2012.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <form class="contact-form" style="margin-top: 20px;"
+                        onsubmit="event.preventDefault(); if(this.querySelector('input').value){window.location.href='404.html';} else { this.querySelector('input').reportValidity(); }">
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Your email address" required
+                                oninvalid="this.setCustomValidity('fill this slot')" oninput="this.setCustomValidity('')">
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Non-Profit Organization. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+</body>
+
+</html>
+
