@@ -129,47 +129,49 @@ document.addEventListener('DOMContentLoaded', () => {
 // Preloader Logic
 const hidePreloader = () => {
     const preloader = document.getElementById('preloader');
-    if (preloader && !preloader.classList.contains('loaded')) {
+    if (preloader) {
+        preloader.classList.add('loaded');
         setTimeout(() => {
-            preloader.classList.add('loaded');
-            setTimeout(() => preloader.style.display = 'none', 600);
-        }, 300); // Aesthetic delay
+            preloader.style.display = 'none';
+        }, 500); // Allow animation to finish
     }
 };
 
-if (document.readyState === 'complete') {
+// Immediate hide if already loaded
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
     hidePreloader();
 } else {
     window.addEventListener('load', hidePreloader);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    if (document.readyState === 'complete') {
-        hidePreloader();
+// Fix for Back Button Navigation (BFCache)
+window.addEventListener('pageshow', (event) => {
+    const preloader = document.getElementById('preloader');
+    if (preloader && event.persisted) {
+        preloader.classList.add('loaded');
+        preloader.style.display = 'none';
     }
+});
 
-    // Fade in when navigating away
-    document.querySelectorAll('a:not([href="#"]):not([href^="mailto:"]):not([href^="tel:"])').forEach(link => {
-        link.addEventListener('click', function(e) {
-            const isSelf = this.hostname === window.location.hostname && this.getAttribute('target') !== '_blank';
-            // Only trigger preloader internally and not on buttons acting as js triggers
-            if (isSelf && !this.classList.contains('nav-link')) {
-                const targetUrl = this.href;
-                const preloader = document.getElementById('preloader');
-                
-                if (preloader && targetUrl && window.location.href !== targetUrl) {
-                    e.preventDefault();
-                    preloader.style.display = 'flex';
-                    // force reflow
-                    void preloader.offsetWidth;
-                    preloader.classList.remove('loaded');
-                    setTimeout(() => {
-                        window.location.href = targetUrl;
-                    }, 500);
-                }
-            }
-        });
-    });
+// Show preloader immediately on click for ANY link that navigates away (aesthetic effect)
+// But DO NOT intercept the event, let the browser handle navigation naturally
+document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    
+    // Check if it's an internal link navigating elsewhere
+    const isInternal = link.hostname === window.location.hostname && 
+                      !link.hash && 
+                      link.getAttribute('target') !== '_blank' &&
+                      !e.ctrlKey && !e.shiftKey && !e.metaKey;
+    
+    if (isInternal && link.href !== window.location.href && !link.href.includes('mailto:') && !link.href.includes('tel:')) {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.display = 'flex';
+            preloader.classList.remove('loaded');
+        }
+    }
 });
 
 // --- PREMIUM UI ANIMATIONS --- //
@@ -305,11 +307,11 @@ window.addEventListener('DOMContentLoaded', () => {
         
         // High quality webp images below 100kb format
         const images = [
-            'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?fm=webp&q=40&w=1200&auto=format&fit=crop', // Child smiling
-            'https://images.unsplash.com/photo-1504159506876-f8338247a14a?fm=webp&q=40&w=1200&auto=format&fit=crop', // Charity hands
-            'https://images.unsplash.com/photo-1542810634-71277d95dcbb?fm=webp&q=40&w=1200&auto=format&fit=crop', // Community
-            'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?fm=webp&q=40&w=1200&auto=format&fit=crop', // Nature / Tree planting
-            'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?fm=webp&q=40&w=1200&auto=format&fit=crop'  // Volunteers outdoors
+            'public/assets/images/local_img_c7229459.webp', // Child smiling
+            'public/assets/images/local_img_c1225005.webp', // Charity hands
+            'public/assets/images/local_img_35626947.webp', // Community
+            'public/assets/images/local_img_b0ae4957.webp', // Nature / Tree planting
+            'public/assets/images/local_img_e7be7651.webp'  // Volunteers outdoors
         ];
         
         images.forEach((src, index) => {

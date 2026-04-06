@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Goodwish | Donate</title>
+    <title>Stackly | Donate</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -40,7 +40,7 @@
 
     <!-- Subpage Hero -->
     <section class="sub-hero"
-        style="background-image: url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?fm=webp&q=50&w=1200&auto=format&fit=crop');">
+        style="background-image: url('public/assets/images/local_img_a6f4bffd.webp');">
         <div class="sub-hero-content">
             <h1>Support Our <span>Mission</span></h1>
             <p>Your contribution directly impacts lives and creates lasting change.</p>
@@ -158,30 +158,60 @@
             </div>
         </section>
 
-        <!-- Footer Section -->
-        <footer>
-            <div class="footer-top">
-                <div class="footer-col">
-                    <a href="index.html" class="logo" style="display: block; margin-bottom: 20px;"><img
-                            src="public/assets/images/stackly_yellow.webp" alt="Stackly Logo"></a>
-                    <p>Empowering lives since 2012.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Newsletter</h4>
-                    <form class="contact-form" style="margin-top: 20px;"
-                        onsubmit="event.preventDefault(); if(this.querySelector('input').value){window.location.href='404.html';} else { this.querySelector('input').reportValidity(); }">
-                        <div class="newsletter-form">
-                            <input type="email" placeholder="Your email address" required
-                                oninvalid="this.setCustomValidity('fill this slot')" oninput="this.setCustomValidity('')">
-                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
-                        </div>
-                    </form>
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="display: block; margin-bottom: 20px;"><img
+                        src="public/assets/images/stackly_yellow.webp" alt="Stackly Logo"></a>
+                <p>Empowering lives since 2012. We are a non-profit dedicated to making the world a better place for
+                    everyone.</p>
+                <div class="footer-socials">
+                    <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Stackly Non-Profit Organization. All rights reserved.</p>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
-        </footer>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="404.html">Child Education</a></li>
+                    <li><a href="404.html">Medical Support</a></li>
+                    <li><a href="404.html">Clean Water</a></li>
+                    <li><a href="404.html">Food Aid</a></li>
+                    <li><a href="404.html">Disaster Relief</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Stay updated with our latest causes and mission results.</p>
+                <form class="contact-form" style="margin-top: 20px;"
+                    onsubmit="event.preventDefault(); if(this.querySelector('input').value){window.location.href='404.html';} else { this.querySelector('input').reportValidity(); }">
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required
+                            oninvalid="this.setCustomValidity('fill this slot')" oninput="this.setCustomValidity('')">
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stackly Non-Profit Organization. All rights reserved.</p>
+        </div>
+    </footer>
 
         <script src="script.js"></script>
 </body>
